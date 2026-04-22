@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Soft luxury palette - blush, cream, gold */
+    --background: 35 40% 97%;
+    --foreground: 25 25% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 18%;
+
+    /* Warm brown primary */
+    --primary: 22 35% 28%;
+    --primary-foreground: 35 40% 97%;
+
+    /* Blush pink secondary */
+    --secondary: 12 55% 92%;
+    --secondary-foreground: 22 35% 28%;
+
+    --muted: 30 25% 94%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Soft peach accent */
+    --accent: 18 70% 88%;
+    --accent-foreground: 22 35% 28%;
+
+    /* Gold */
+    --gold: 38 55% 58%;
+    --gold-light: 42 75% 78%;
+    --blush: 8 60% 88%;
+    --cream: 35 50% 95%;
+    --peach: 20 70% 88%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 25% 88%;
+    --input: 25 25% 88%;
+    --ring: 22 35% 28%;
+
+    --radius: 1rem;
+
+    --gradient-hero: linear-gradient(135deg, hsl(35 50% 96%) 0%, hsl(12 55% 92%) 50%, hsl(20 70% 90%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 75% 78%) 0%, hsl(38 55% 58%) 50%, hsl(32 50% 50%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(35 50% 97%) 0%, hsl(12 55% 95%) 100%);
+
+    --shadow-soft: 0 10px 40px -15px hsl(22 35% 28% / 0.15);
+    --shadow-luxe: 0 25px 60px -20px hsl(22 35% 28% / 0.25);
+    --shadow-glow: 0 0 60px hsl(38 55% 70% / 0.4);
+
+    --transition-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer utilities {
+  .font-serif { font-family: 'Cormorant Garamond', serif; }
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-gold { background: var(--gradient-gold); }
+  .bg-gradient-soft { background: var(--gradient-soft); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-luxe { box-shadow: var(--shadow-luxe); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .transition-luxe { transition: all 0.5s var(--transition-luxe); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -30px) scale(1.05); }
+}
+@keyframes float-slower {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-25px, 25px) scale(1.08); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float-slow { animation: float-slow 12s ease-in-out infinite; }
+.animate-float-slower { animation: float-slower 16s ease-in-out infinite; }
+.animate-fade-up { animation: fade-up 0.9s var(--transition-luxe) both; }
