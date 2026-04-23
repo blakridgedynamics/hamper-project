@@ -19,8 +19,7 @@ const Login = () => {
     try {
       setLoading(true);
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/admin/login`, {
-        method: "POST",
+      const res = await fetch(`/api/admin/login`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -45,9 +44,9 @@ const Login = () => {
       // redirect to dashboard
       navigate("/admin");
 
-    } catch (err) {
-      alert("Backend server not running on port 3000");
-    } finally {
+    } catch (err: any) {
+  alert(err.message || "Network error");
+} finally {
       setLoading(false);
     }
   };
