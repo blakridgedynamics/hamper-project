@@ -4,11 +4,11 @@ import { Gift, Mail, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { loginUser } from "../api/auth"; // ⭐ NEW IMPORT
 
 const Login = () => {
   const navigate = useNavigate();
 
-  // you can keep demo values for quick testing
   const [email, setEmail] = useState("admin@hamperstudio.com");
   const [password, setPassword] = useState("admin123");
   const [loading, setLoading] = useState(false);
@@ -19,34 +19,18 @@ const Login = () => {
     try {
       setLoading(true);
 
-      const res = await fetch(`/api/admin/login`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+      // ⭐ using our backend helper instead of broken fetch
+      const data = await loginUser(email, password);
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        alert(data.message || "Login failed");
-        setLoading(false);
-        return;
-      }
-
-      // save token in browser
+      // save token
       localStorage.setItem("adminToken", data.token);
 
-      // redirect to dashboard
+      // redirect
       navigate("/admin");
 
     } catch (err: any) {
-  alert(err.message || "Network error");
-} finally {
+      alert(err.message || "Login failed");
+    } finally {
       setLoading(false);
     }
   };
