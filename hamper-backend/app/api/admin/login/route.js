@@ -1,5 +1,6 @@
 // app/api/admin/login/route.js
 // POST /api/admin/login
+export const runtime = "nodejs";
 
 import { connectDB } from "@/lib/db";
 import Admin from "@/models/Admin";

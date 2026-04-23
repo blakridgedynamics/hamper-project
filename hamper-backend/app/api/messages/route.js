@@ -1,7 +1,7 @@
 // app/api/messages/route.js
 // POST /api/messages  → store contact form message (PUBLIC — no auth)
 // GET  /api/messages  → list all messages          (ADMIN — protected by middleware.js)
-
+export const runtime = "nodejs";
 import { connectDB } from "@/lib/db";
 import Message from "@/models/Message";
 import { ok, created, badRequest, serverError } from "@/lib/apiResponse";

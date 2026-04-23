@@ -1,6 +1,6 @@
 // app/api/admin/logout/route.js
 // POST /api/admin/logout
-
+export const runtime = "nodejs";
 import { clearAuthCookie } from "@/lib/auth";
 import { ok } from "@/lib/apiResponse";
 

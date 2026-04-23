@@ -1,7 +1,7 @@
 // app/api/messages/[id]/route.js
 // PATCH  /api/messages/:id  → mark as read   (admin)
 // DELETE /api/messages/:id  → delete message  (admin)
-
+export const runtime = "nodejs";
 import { connectDB } from "@/lib/db";
 import Message from "@/models/Message";
 import { ok, notFound, serverError } from "@/lib/apiResponse";

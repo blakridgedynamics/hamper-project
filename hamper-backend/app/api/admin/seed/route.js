@@ -3,7 +3,7 @@
 //
 // Body: { email, password, seedSecret }
 // Requires SEED_SECRET env var as an extra guard.
-
+export const runtime = "nodejs";
 import { connectDB } from "@/lib/db";
 import Admin from "@/models/Admin";
 import { ok, badRequest, serverError } from "@/lib/apiResponse";
