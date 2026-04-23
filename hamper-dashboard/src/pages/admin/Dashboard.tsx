@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Package, ShoppingBag, MessageSquare, Star, PlusSquare, Eye, Mail, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL || "https://hamper-project-pjl8.vercel.app";
 
 const Dashboard = () => {
   const [stats, setStats] = useState({ products: 0, featured: 0, messages: 0 });

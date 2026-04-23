@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://hamper-project-pjl8.vercel.app";
 
 const CATEGORY_OPTIONS = [
   { value: "birthday",    label: "Birthday" },

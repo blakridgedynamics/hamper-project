@@ -1,4 +1,4 @@
-const API = "http://localhost:3000/api";
+const API = "https://hamper-project-pjl8.vercel.app/api";
 
 export async function apiFetch(endpoint: string, options: any = {}) {
   const res = await fetch(`${API}${endpoint}`, {
